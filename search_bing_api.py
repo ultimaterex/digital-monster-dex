@@ -4,6 +4,11 @@ import argparse
 import requests
 import os
 
+# import api key from credentials file
+with open('credentials.txt', 'r') as file:
+    PRIVATE_API_KEY = file.read().replace('\n', '')
+
+
 # construct the argument parser and set it up
 ap = argparse.ArgumentParser()
 ap.add_argument("-q", "--query", required=True,
@@ -15,8 +20,8 @@ args = vars(ap.parse_args())
 # set your Microsoft Cognitive Services API key along with the
 # maximum number of results for a given search and  the group size
 # for results (maximum of 50 per request)
-API_KEY = "YOUR_API_KEY_GOES_HERE"
-MAX_RESULTS = 250
+API_KEY = PRIVATE_API_KEY
+MAX_RESULTS = 200
 GROUP_SIZE = 50
 
 # set the endpoint API URL
