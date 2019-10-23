@@ -1,4 +1,6 @@
 # import dependencies
+import cv2
+
 from requests import exceptions
 import argparse
 import requests
@@ -81,11 +83,25 @@ for v in results["value"]:
         f.write(r.content)
         f.close()
 
-    # catch any errors that would not unable us to download the
-    # image
+    # catch any errors that would not unable us to download the image
     except Exception as e:
         # check to see if our exception is in our list of
         # exceptions to check for
         if type(e) in EXCEPTIONS:
             print("[INFO] skipping: {}".format(v["contentUrl"]))
             continue
+
+
+    # try to load the image from disk
+    image = cv2.imread(p)
+
+    # if the image is `None` then we could not properly load the
+    # image from disk (so it should be ignored)
+    if image is None:
+        print("[INFO] deleting: {}".format(p))
+        os.remove(p)
+        continue
+
+    # update the counter
+    total += 1
+
