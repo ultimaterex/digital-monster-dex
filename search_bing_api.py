@@ -6,6 +6,7 @@ import os
 
 # import api key from credentials file
 # for first time setup, create a credentials.txt file with the api key as a single line.
+# link to get your own API_KEY: https://azure.microsoft.com/en-us/try/cognitive-services/my-apis/?apiSlug=search-api-v7
 with open('credentials.txt', 'r') as file:
     PRIVATE_API_KEY = file.read().replace('\n', '')
 
