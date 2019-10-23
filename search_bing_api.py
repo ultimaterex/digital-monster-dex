@@ -5,6 +5,7 @@ import requests
 import os
 
 # import api key from credentials file
+# for first time setup, create a credentials.txt file with the api key as a single line.
 with open('credentials.txt', 'r') as file:
     PRIVATE_API_KEY = file.read().replace('\n', '')
 
