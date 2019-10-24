@@ -48,11 +48,11 @@ $ pip install opencv-python
 ```sh
 $ mkdir -p -- datasets/example datasets/example2 datasets/example3
 ```
-3. For every entity in your data set, search_bing_api.py to populate your datasets.
+3. For every entity in your data set, run search_bing_api.py to populate your datasets.
 ```sh
 $ python search_bing_api.py --query "example" --output dataset/example
 ```
-4.TODO
+4. TODO
 
 
 ### Todos
